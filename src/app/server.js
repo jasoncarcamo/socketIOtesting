@@ -12,14 +12,12 @@ const db = knex({
 app.set("db", db);
 app.set("io", io);
 
-io.on("connect", (socket)=>{
-
+io.on("connection", (socket)=>{
+    console.log("connected")
     socket.on(socket.id, msg => {
-        console.log(socket.id)
+        console.log(msg)
         socket.emit(socket.id, msg);
     });
-
-    console.log(socket.eventNames(), socket.id);
 }); 
 
 server.listen( PORT, ()=>{

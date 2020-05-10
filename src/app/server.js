@@ -13,7 +13,7 @@ app.set("db", db);
 app.set("io", io);
 
 io.on("connection", (socket)=>{
-    console.log("connected")
+    
     socket.on(socket.id, msg => {
         console.log(msg)
         socket.emit(socket.id, msg);

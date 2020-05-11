@@ -15,9 +15,15 @@ app.set("io", io);
 io.on("connection", (socket)=>{
     
     socket.on(socket.id, msg => {
-        console.log(msg)
+        console.log(socket.request)
+        console.log("from id", msg);
         socket.emit(socket.id, msg);
     });
+
+    socket.on("example", msg => {
+        console.log("from example", msg);
+        socket.emit("example", msg);
+    })
 }); 
 
 server.listen( PORT, ()=>{
